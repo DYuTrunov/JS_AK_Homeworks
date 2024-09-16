@@ -57,5 +57,5 @@ console.log("item_7 == " + item_7 + ", " + "item_7_type == " + item_7_type)
 const num1to9 = '1';
 const n = parseInt(num1to9)
 // нужные нам перменные переводим в строки и конкатенируем
-const summaN = n + +('' + n + '' + n) + +('' + n + '' + n + '' + n); // складываем, преобразуя значения в переменных
+const summaN = n + +('' + n + n) + +('' + n + n + n); // складываем, преобразуя значения в переменных
 console.log(summaN); // вывод результата
