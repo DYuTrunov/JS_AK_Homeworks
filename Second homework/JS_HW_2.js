@@ -36,7 +36,7 @@ if (typeof(age)!=='number'){
  Task 3 (НЕ ОБЯЗАТЕЛЬНО)
  Преобразовать Task 2 таким образом, чтобы значение НАПРИМЕР '2' (т.е. ЛЮБАЯ строка в которой лежат ТОЛЬКО ЦИФРЫ) пропускалось, преобразовываясь в number */
  let newAge = '999';
- if (typeof(newAge) !== 'string' && typeof(newAge) !== 'number') {
+ if (isNaN(newAge)) {
     console.log('Incorect data type')
  } else {
     newAge = +newAge;
