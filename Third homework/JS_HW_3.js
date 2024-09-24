@@ -61,12 +61,13 @@ for (let i = 1; i <= 100; i++) {
 //   и выводить в консоль количество гласных и согласных букв в этом слове.
 //   Ответ должен выводиться шаблонным литералом вида word contains x vowels and y consonants
 console.log(' \n=======================TASK 3=======================\n ');
-let wordInput = "Strengths"; // 9 символов и только 1 гласная)
-const vowels = "aeiouyаяуюоеёэиы"; // добавил еще и кириллицу
+let wordInput = String('С!"%%"%":%*?:(О*?)?№    нНыЙ'); // 9 символов и только 1 гласная)
+let wordRight = wordInput.replace (/[^a-zA-Zа-яА-Я]/g, '');
+const vowels = "aeiouyаяуюоеёэийы"; // добавил еще и кириллицу
 let countVowels = 0;
 let countConsonants = 0;
-for (let i = 0; i < wordInput.length; i++) {
-   if (vowels.indexOf(wordInput.toLowerCase()[i]) > -1) { // ищем совпадения с условием и занижаем слово
+for (let i = 0; i < wordRight.length; i++) {
+   if (vowels.indexOf(wordRight.toLowerCase()[i]) > -1) { // ищем совпадения с условием и занижаем слово
     countVowels++;  // если удачно плюс к гласным
   } else {
     countConsonants++; // неудачно плюс к согласным. можно было и от кол-ва символов отнимать гласные. так короче.
