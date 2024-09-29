@@ -81,8 +81,7 @@ console.log(" \n======================CONTINUE======================\n ");
   - При удалении дубликата, длина массива должна уменьшаться */
 const dubleBuble = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 4, 6, 8, 10, 1, 3, 5, 7, 9, 11, 11, 12, 13, 14, 12, 14, 13];
 const cloneDubleBuble = []
-const length = dubleBuble.length
-for (i = 0; i < length; i++) {
+for (i = 0; i < dubleBuble.length; i++) {
 if (dubleBuble.includes(dubleBuble[i], i+1)){
     cloneDubleBuble.push(dubleBuble[i])
     }
