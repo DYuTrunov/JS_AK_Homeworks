@@ -38,26 +38,24 @@ const line = () => console.log(" \n======================CONTINUE===============
 //   - Например fibanacci(8) //21 */
 
 function fibanacci(n) {
-  const fibArr = []; // массив куда складываем ряд Фибоначчи. 
+  const fibArr = [0, 1]; // массив куда складываем ряд Фибоначчи. 
+  if (i == 0 || i == 1)  fibArr[i] = i;
   let nFibRet = 0; 
-  for (i = 0; i <= n; i++)
-    i == 0 || i == 1 ? fibArr[i] = i : fibArr[i] = fibArr[i - 2] + fibArr[i - 1]; // Перебираем ряд Фибоначи и заносим в массив.
-    nFibRet = +(fibArr.slice(-1)); // Вырезаем последнее значение в массиве и кладем в переменную). 
+  for (i = 2; i <= n; i++) fibArr[i] = fibArr[i - 2] + fibArr[i - 1]; // Перебираем ряд Фибоначи и заносим в массив.
+  nFibRet = +(fibArr.slice(-1)); // Вырезаем последнее значение в массиве и кладем в переменную). 
   return nFibRet;
 }
+pr(fibanacci(1));
 pr(fibanacci(8));
 pr(fibanacci(10));
 line();
 
 /* 1. Написать функцию, которая принимает на вход слово и проверяет, является ли это слово палиндромом */
 
-function palindromCheck(p = "") {
-  const palinLow = p.toLowerCase(); // а мало ли) чтобы БуКаВки все были одного роста)
-  const palinReverse = palinLow.split('').reverse().join(''); // разделяем, меняем порядок символов на обратный и склеиваем в слово обратно
-  palinReverse.localeCompare(palinLow) == 0 ? pr("палиндром") : pr("хер тоби") /* ну тут все и так ясно) полное совпадение прямого и отражения - значит палиндром.
-                                                                                решил сразу выводить через консоль.*/ 
-  return palinReverse; // не.. можно конечно и в еще одну перменнуб выводить значение, что в консоли. пока оставил так)
-}
+function palindromCheck(p) {
+  const palinLow = p.toLowerCase()
+  return palinLow.split('').reverse().join('') === palinLow ? pr('палиндромом') : pr('обычное слово'); // разделяем, меняем порядок символов на обратный и склеиваем в слово обратно
+  }
 palindromCheck("ПаЛиИлАП");
 palindromCheck("РабоТА");
 palindromCheck("ПаЛиИлАД");
@@ -70,14 +68,10 @@ line();
 
 function bigWords(bg = "") {
   const arrayWords = bg.split(" "); // Все слова пихаем в массив
-  const arrayMaxL = []; // Сюда кидаем длину каждого слова согласно индексу
-  const arrayMaxW = []; // А сюда кидаем тоолько те слова или слово с самым наибольшим количеством.
-  for (i = 0; i < arrayWords.length; i++) arrayMaxL.push(arrayWords[i].length); // У каждого слова находим длину и шлем в массив
-  for (i = 0; i < arrayWords.length; i++) {
-    if (arrayWords[i].length == Math.max(...arrayMaxL)) arrayMaxW.push(arrayWords[i]); /* Из массива длина находим самое большое значение и согласно индексу 
-                                                                                        нужные слова шлем в массив для самых жирных) */
-    }
-  return arrayMaxW;
+  const arrayMaxL = arrayWords.map((elem) => elem.length);
+  const arrayMaxW = Math.max(...arrayMaxL);
+  const result = arrayWords.filter((elem) => elem.length == arrayMaxW)
+  return result
 }
 pr(bigWords("Я люблю людей до обеда и после"));
 pr(bigWords("It's only after we've lost everything that we're free to do anything"));
@@ -91,11 +85,11 @@ line();
     if(n<=9){
       return n
     } else {
-      return recursSum(n%10 + recursSum(Math.floor(n/10))) /* И это стоило мне две ночи и полдня воскресенья))..А ведь первоначально нашел правильную рекурсию. 
-      Но зациклился на разделении числа на цифры и ушел не туда). После - 'Задача до умиления простая если понять рекурсию)' все бросил, отдохнул и 
-      решение сразу нашлось)) */
+      return recursSum(n%10 + recursSum(Math.floor(n/10)))
     }
   }
 pr(recursSum(19))
 pr(recursSum(119))
+
+
 
