@@ -1,3 +1,5 @@
+const pr = (n) => console.log(n);
+const line = () => console.log(" \n======================CONTINUE======================\n ");
 /* Task 1.  
    - Создайте переменную salary со значением 1000 */
 const salary = 1000;
@@ -11,7 +13,7 @@ const minAge = 18;
 //   2. Создать переменную "maxAge" и присвоить ей значение 60
 const maxAge = 60;
 //   3. Создать переменную "age", в которую вы будете вводить возраст при выполнении программы
-let age = NaN;
+let age = 0;
 //   4. Добавьте проверку: если тип данных в переменной age не number - вывести в консоль Incorrect data type
 if (typeof(age)!=='number'){
     console.log('Incorect data type')
