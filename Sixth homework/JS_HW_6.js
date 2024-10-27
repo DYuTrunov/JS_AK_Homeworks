@@ -14,7 +14,7 @@ pr(arrSubtractLength)
 line()
  /* 3. filter - создайте новый массив, в который войдут лишь значения, которые больше предыдущего
     [8, 30, 85, 95, 94]*/
-const filterArray = arrNumbers.filter((elem, index, array) => array[index-1] < array[index] && array [index])
+const filterArray = arrNumbers.filter((elem, index, array) => elem > array[index-1])
 pr(filterArray)
 line()
 // 4. find - найдите элемент, равный своему индексу //2
@@ -35,7 +35,7 @@ const someArray = arrNumbers.some((elem) => elem > 90)
 pr(someArray)
 line()
 // 8. every - проверьте, что все элементы массива двухзначные //false*/
-const everyArray = arrNumbers.every((elem) => elem.length === 2)
+const everyArray = arrNumbers.every((elem) => String(elem).length === 2)
 pr(everyArray)
 line()
 
